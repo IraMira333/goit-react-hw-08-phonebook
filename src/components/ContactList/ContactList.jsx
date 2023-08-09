@@ -6,9 +6,14 @@ import PropTypes from 'prop-types';
 const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
 
+  function SortArray(x, y) {
+    return x.name.localeCompare(y.name);
+  }
+  const sortContacts = contacts.sort(SortArray);
+
   return (
     <ul className={css.listBox}>
-      {contacts.map(contact => {
+      {sortContacts.map(contact => {
         return (
           <li className={css.liContact} key={contact.id}>
             <span>{contact.name}: </span>
