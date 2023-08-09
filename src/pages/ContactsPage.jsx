@@ -8,8 +8,8 @@ import {
   selectError,
   selectFilteredContacts,
   selectIsLoading,
-} from 'reduxThunk/selectors';
-import * as contactsOperations from '../reduxThunk/operationsThunk';
+} from 'reduxThunk/contacts/contactsSelectors';
+import * as contactsOperations from '../reduxThunk/contacts/contactsOperations';
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
