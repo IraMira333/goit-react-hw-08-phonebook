@@ -1,7 +1,7 @@
-//import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+
+import { filterForContacts } from 'reduxThunk/contacts';
 import css from './Filter.module.css';
-import { filterForContacts } from 'reduxThunk/contacts/filterSlice';
 
 const Filter = () => {
   const dispatch = useDispatch();
