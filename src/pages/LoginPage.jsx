@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { authOperations } from 'reduxThunk/auth';
+import { logIn } from 'reduxThunk/auth';
 
 const styles = {
   form: {
@@ -31,7 +31,7 @@ export default function LoginPage() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(authOperations.logIn({ email, password }));
+    dispatch(logIn({ email, password }));
     setEmail('');
     setPassword('');
   };
