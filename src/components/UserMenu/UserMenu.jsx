@@ -6,11 +6,11 @@ import styles from './UserMenu.module.css';
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUsername);
-  const avatar = defaultAvatar;
+  // const avatar = defaultAvatar;
 
   return (
     <div className={styles.container}>
-      <img src={avatar} alt="" width="32" className={styles.avatar} />
+      {/* <img src={avatar} alt="" width="32" className={styles.avatar} /> */}
       <span className={styles.name}>Добро пожаловать, {name}</span>
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Выйти
