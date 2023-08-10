@@ -1,3 +1,3 @@
-export { default as authOperations } from './authOperations';
+export * from './authOperations';
 export { default as authSelectors } from './authSelectors';
 export * from './authSlice';
