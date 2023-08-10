@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { authOperations } from 'reduxThunk/auth';
+import { register } from 'reduxThunk/auth';
 
 const styles = {
   form: {
@@ -34,7 +34,7 @@ export default function RegisterPage() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(authOperations.register({ name, email, password }));
+    dispatch(register({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');
