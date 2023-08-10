@@ -4,12 +4,12 @@ import Spiner from 'components/Spiner/Spiner';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  getContacts,
   selectContacts,
   selectError,
   selectFilteredContacts,
   selectIsLoading,
-} from 'reduxThunk/contacts/contactsSelectors';
-import * as contactsOperations from '../reduxThunk/contacts/contactsOperations';
+} from 'reduxThunk/contacts';
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
@@ -21,7 +21,7 @@ export default function ContactsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(contactsOperations.getContacts());
+    dispatch(getContacts());
   }, [dispatch]);
 
   return (
