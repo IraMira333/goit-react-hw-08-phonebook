@@ -21,7 +21,7 @@ export default function ContactsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(contactsOperations.fetchContacts());
+    dispatch(contactsOperations.getContacts());
   }, [dispatch]);
 
   return (
