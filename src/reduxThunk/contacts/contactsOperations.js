@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getContacts = createAsyncThunk(
-  'contacts/fetchContacts',
+  'contacts/getContacts',
   async (_, { rejectWithValue }) => {
     try {
       const { contacts } = await axios.get('/contacts');
