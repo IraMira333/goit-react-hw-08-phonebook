@@ -1,13 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-//import * as contactsAPI from '../services/contacts_API';
 import axios from 'axios';
-import { contactsAPI } from 'services';
 
-export const fetchContacts = createAsyncThunk(
+export const getContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, { rejectWithValue }) => {
     try {
-      const contacts = await contactsAPI.fetchContacts();
+      const { contacts } = await axios.get('/contacts');
       return contacts;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -17,9 +15,9 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async ({ name, phone }, { rejectWithValue }) => {
+  async ({ name, number }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post('/contacts', { name, phone });
+      const { data } = await axios.post('/contacts', { name, number });
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
