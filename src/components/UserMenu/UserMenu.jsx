@@ -5,7 +5,7 @@ import { authSelectors, logOut } from 'reduxThunk/auth';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-  const name = useSelector(authSelectors.getUsername);
+  const name = useSelector(authSelectors.selectUsername);
 
   return (
     <div className={styles.container}>
