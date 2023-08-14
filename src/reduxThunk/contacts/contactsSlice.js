@@ -3,6 +3,7 @@ import { addContact, getContacts, deleteContact } from './contactsOperations';
 
 const handlePending = state => {
   state.isLoading = true;
+  state.contactIsAdded = false;
 };
 
 const handleRejected = (state, action) => {
@@ -14,6 +15,7 @@ const initialState = {
   contactsInfo: [],
   isLoading: false,
   error: null,
+  contactIsAdded: false,
 };
 
 const contactsSlice = createSlice({
@@ -35,6 +37,7 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.contactsInfo.push(action.payload);
+        state.contactIsAdded = true;
       })
       .addCase(addContact.rejected, handleRejected)
       .addCase(deleteContact.pending, handlePending)
