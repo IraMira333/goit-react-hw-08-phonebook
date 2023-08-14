@@ -1,5 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { authSelectors } from 'reduxThunk/auth';
 
 const styles = {
   link: {
@@ -13,25 +15,34 @@ const styles = {
     color: '#E84A5F',
   },
 };
+export default function Navigation() {
+  const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
+  const privateInfo = (
+    <>
+      <NavLink
+        to="/contacts"
+        style={styles.link}
+        activestyle={styles.activeLink}
+      >
+        Contacts
+      </NavLink>
 
-const Navigation = () => (
-  <nav>
-    <NavLink to="/" style={styles.link} activestyle={styles.activeLink}>
-      HomePage
-    </NavLink>
+      <NavLink
+        to="/addcontacts"
+        style={styles.link}
+        activestyle={styles.activeLink}
+      >
+        Add Contact
+      </NavLink>
+    </>
+  );
+  return (
+    <nav>
+      <NavLink to="/" style={styles.link} activestyle={styles.activeLink}>
+        HomePage
+      </NavLink>
 
-    <NavLink to="/contacts" style={styles.link} activestyle={styles.activeLink}>
-      Contacts
-    </NavLink>
-
-    <NavLink
-      to="/addcontacts"
-      style={styles.link}
-      activestyle={styles.activeLink}
-    >
-      Add Contact
-    </NavLink>
-  </nav>
-);
-
-export default Navigation;
+      {isLoggedIn && privateInfo}
+    </nav>
+  );
+}
