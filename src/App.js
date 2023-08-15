@@ -7,7 +7,7 @@ import AddContactsPage from 'pages/AddContactsPage';
 import AppBar from 'components/AppBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { authSelectors, getCurrentUser } from 'reduxThunk/auth';
+import { authSelectors, getCurrentUser } from 'redux/auth';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 
