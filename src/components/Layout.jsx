@@ -3,11 +3,11 @@ import { Outlet } from 'react-router-dom';
 
 import Spiner from './Spiner/Spiner';
 import Footer from './Footer';
+import AppBar from './TopBar/AppBar';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import AppBar from './TopBar/AppBar';
+//import Container from '@mui/material/Container';
 
 export default function Layout() {
   return (
@@ -22,12 +22,11 @@ export default function Layout() {
         <AppBar />
 
         <CssBaseline />
-        <Container component="main">
+        <main>
           <Suspense fallback={<Spiner />}>
             <Outlet />
           </Suspense>
-        </Container>
-
+        </main>
         <Footer />
       </Box>
     </>
