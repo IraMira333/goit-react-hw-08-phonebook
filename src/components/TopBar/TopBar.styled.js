@@ -19,7 +19,6 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   flex: 0 0 auto;
-  /* padding-right: 15px; */
   border-bottom: 1px solid #2a363b;
   background-color: #b6c6ec;
   background-image: linear-gradient(
