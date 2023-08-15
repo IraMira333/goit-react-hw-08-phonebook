@@ -9,7 +9,7 @@ import {
   selectError,
   selectFilteredContacts,
   selectIsLoading,
-} from 'reduxThunk/contacts';
+} from 'redux/contacts';
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
