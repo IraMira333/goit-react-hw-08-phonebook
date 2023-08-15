@@ -3,13 +3,15 @@ import { useId } from 'react';
 
 import { addContact, selectContacts } from 'redux/contacts';
 import css from './ContactForm.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const findingDoubleName = useSelector(selectContacts);
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     const name = e.currentTarget.name.value;
     const number = e.currentTarget.number.value;
@@ -21,8 +23,14 @@ export default function ContactForm() {
       alert(`${name} is already in contacts!`);
       return;
     }
-    dispatch(addContact({ name, number }));
-    e.target.reset();
+    try {
+      await dispatch(addContact({ name, number })).unwrap();
+      navigate('/contacts');
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      e.target.reset();
+    }
   };
 
   const nameId = useId();
