@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { register } from 'reduxThunk/auth';
+import { register } from 'redux/auth';
 
 const styles = {
   form: {
