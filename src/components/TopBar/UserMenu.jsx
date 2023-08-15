@@ -14,6 +14,7 @@ export default function UserMenu() {
       <StyledHelloUserSpan>Hello, {name}</StyledHelloUserSpan>
       <ColorButton
         variant="contained"
+        sx={{ marginRight: '15px' }}
         type="button"
         onClick={() => dispatch(logOut())}
       >
