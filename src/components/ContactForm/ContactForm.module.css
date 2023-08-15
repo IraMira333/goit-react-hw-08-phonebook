@@ -1,10 +1,10 @@
-form {
+.form {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
 }
-input {
+.input {
   width: 280px;
   border: 1px solid #511f78;
   border-radius: 10px;
@@ -13,7 +13,7 @@ input {
   margin-right: auto;
   margin-left: auto;
 }
-label {
+.label {
   margin-bottom: 5px;
   margin-top: 10px;
   font-size: 18px;
