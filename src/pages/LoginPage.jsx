@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -12,7 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth';
 
@@ -43,25 +41,12 @@ const defaultTheme = createTheme();
 
 export default function LoginPage() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
-  };
 
   const handleSubmit = e => {
     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
     dispatch(logIn({ email, password }));
-    setEmail('');
-    setPassword('');
   };
 
   return (
@@ -95,7 +80,6 @@ export default function LoginPage() {
               id="email"
               label="Email Address"
               name="email"
-              onChange={handleChange}
               autoComplete="email"
               autoFocus
             />
@@ -104,16 +88,12 @@ export default function LoginPage() {
               required
               fullWidth
               name="password"
-              onChange={handleChange}
               label="Password"
               type="password"
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+
             <Button
               type="submit"
               fullWidth
@@ -123,11 +103,6 @@ export default function LoginPage() {
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
                 <Link
                   href="https://iramira333.github.io/goit-react-hw-08-phonebook/register"
