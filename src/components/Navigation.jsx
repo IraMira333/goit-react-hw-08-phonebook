@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { authSelectors } from 'reduxThunk/auth';
+import { authSelectors } from 'redux/auth';
 
 const styles = {
   link: {
