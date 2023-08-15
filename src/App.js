@@ -4,7 +4,7 @@ import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import ContactsPage from 'pages/ContactsPage';
 import AddContactsPage from 'pages/AddContactsPage';
-import AppBar from 'components/AppBar';
+import Layout from 'components/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { authSelectors, getCurrentUser } from 'redux/auth';
@@ -22,7 +22,7 @@ export default function App() {
   return (
     !currentUser && (
       <Routes>
-        <Route path="/" element={<AppBar />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route
             path="register"
