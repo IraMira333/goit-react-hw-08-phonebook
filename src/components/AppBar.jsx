@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import Spiner from './Spiner/Spiner';
-import { authSelectors } from 'reduxThunk/auth';
+import { authSelectors } from 'redux/auth';
 import UserMenu from './UserMenu/UserMenu';
 import AuthNav from './AuthNav';
 
