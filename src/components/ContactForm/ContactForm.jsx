@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useId } from 'react';
 
-import { addContact, selectContacts } from 'reduxThunk/contacts';
+import { addContact, selectContacts } from 'redux/contacts';
 import css from './ContactForm.module.css';
 
 export default function ContactForm() {
@@ -30,9 +30,12 @@ export default function ContactForm() {
 
   return (
     <div className={css.formbox}>
-      <form onSubmit={onSubmit}>
-        <label htmlFor={nameId}>Name</label>
+      <form className={css.form} onSubmit={onSubmit}>
+        <label className={css.label} htmlFor={nameId}>
+          Name
+        </label>
         <input
+          className={css.input}
           type="text"
           name="name"
           id={nameId}
@@ -40,8 +43,11 @@ export default function ContactForm() {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <label htmlFor={numberId}>Number</label>
+        <label className={css.label} htmlFor={numberId}>
+          Number
+        </label>
         <input
+          className={css.input}
           type="tel"
           name="number"
           id={numberId}
