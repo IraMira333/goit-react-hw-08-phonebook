@@ -3,9 +3,9 @@ import { StyledNavLink } from './TopBar.styled';
 
 export default function AuthNav() {
   return (
-    <div>
+    <>
       <StyledNavLink to="/register">Registration</StyledNavLink>
       <StyledNavLink to="/login">LogIn</StyledNavLink>
-    </div>
+    </>
   );
 }
