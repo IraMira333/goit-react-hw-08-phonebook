@@ -30,18 +30,10 @@ function Copyright(props) {
   );
 }
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme({
-  palette: {
-    primary: {
-      main: purple[500],
-    },
-    secondary: {
-      main: '#f44336',
-    },
-  },
-});
+const defaultTheme = createTheme();
 
 export default function Footer() {
+  const primary = purple[900];
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -52,11 +44,8 @@ export default function Footer() {
           py: 3,
           px: 2,
           mt: 'auto',
-
-          backgroundColor: theme =>
-            theme.palette.mode === 'light'
-              ? theme.palette.grey[200]
-              : theme.palette.grey[800],
+          color: primary,
+          background: 'linear-gradient(to right bottom, #5275e9, #d08dd3)',
         }}
       >
         <Typography variant="body1" align="center">
