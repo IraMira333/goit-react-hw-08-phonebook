@@ -1,7 +1,17 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import * as React from 'react';
+
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+
 import { deleteContact } from 'redux/contacts';
-import css from './ContactList.module.css';
 
 const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
@@ -12,23 +22,25 @@ const ContactList = ({ contacts }) => {
   const sortContacts = contacts.sort(SortArray);
 
   return (
-    <ul className={css.listBox}>
+    <List>
       {sortContacts.map(contact => {
         return (
-          <li className={css.liContact} key={contact.id}>
-            <span>{contact.name}: </span>
-            <span>{contact.number}</span>
-
-            <button
-              className={css.listBtn}
+          <ListItem key={contact.id}>
+            <ListItemIcon>
+              <ContactPhoneIcon />
+            </ListItemIcon>
+            <ListItemText primary={contact.name} secondary={contact.number} />
+            <IconButton
+              edge="end"
+              aria-label="delete"
               onClick={() => dispatch(deleteContact(contact.id))}
             >
-              Delete
-            </button>
-          </li>
+              <DeleteIcon />
+            </IconButton>
+          </ListItem>
         );
       })}
-    </ul>
+    </List>
   );
 };
 
