@@ -21,6 +21,7 @@ const Filter = () => {
       sx={{
         background: 'white',
         borderRadius: '8px',
+        marginTop: '5px',
       }}
     />
   );
