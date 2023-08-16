@@ -1,8 +1,11 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Container from '@mui/material/Container';
+
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import Spiner from 'components/Spiner/Spiner';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   getContacts,
   selectContacts,
@@ -10,6 +13,7 @@ import {
   selectFilteredContacts,
   selectIsLoading,
 } from 'redux/contacts';
+import { minBoxHeightPx } from 'support/support';
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
@@ -25,7 +29,14 @@ export default function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <>
+    <Container
+      sx={{
+        bgcolor: '#cfe8fc',
+        marginLeft: '0',
+        marginRight: '0',
+        minHeight: minBoxHeightPx,
+      }}
+    >
       <h2>Contacts</h2>
       {isLoading && <Spiner />}
       {isError && <p>{isError}</p>}{' '}
@@ -36,6 +47,6 @@ export default function ContactsPage() {
         </>
       )}
       {showNoContacts && <p>You don't have any contact yet</p>}
-    </>
+    </Container>
   );
 }
