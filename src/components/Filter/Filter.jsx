@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 
+import TextField from '@mui/material/TextField';
+
 import { filterForContacts } from 'redux/contacts';
-import css from './Filter.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -11,9 +12,17 @@ const Filter = () => {
   }
 
   return (
-    <div className={css.filterInput}>
-      <input placeholder="Search name..." onChange={onFilterInput}></input>
-    </div>
+    <TextField
+      size="small"
+      id="outlined-basic"
+      label="Search name..."
+      onChange={onFilterInput}
+      variant="outlined"
+      sx={{
+        background: 'white',
+        borderRadius: '8px',
+      }}
+    />
   );
 };
 
