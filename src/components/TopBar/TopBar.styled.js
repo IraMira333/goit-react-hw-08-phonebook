@@ -41,7 +41,7 @@ export const StyledHelloUserSpan = styled.span`
 
 export const StyledUserNameSpan = styled.span`
   font-weight: 500;
-  font-size: 22px;
+  font-size: 20px;
   color: #4a148c;
   font-family: Lobster;
   margin-right: 12px;
