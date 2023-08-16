@@ -5,12 +5,15 @@ export const StyledNavLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   padding: 15px;
-  font-weight: 700;
-  color: #2a363b;
-  transition: color cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #212121;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.active {
     color: #4a148c;
+    font-weight: 700;
   }
 `;
 
@@ -29,9 +32,17 @@ export const StyledHelloUserDiv = styled.div`
 `;
 
 export const StyledHelloUserSpan = styled.span`
-  font-weight: 700;
+  font-weight: 500;
   font-size: 18px;
-  color: #2a363b;
+  color: #212121;
   font-family: Roboto, sans-serif;
+  margin-right: 12px;
+`;
+
+export const StyledUserNameSpan = styled.span`
+  font-weight: 500;
+  font-size: 22px;
+  color: #4a148c;
+  font-family: Lobster;
   margin-right: 12px;
 `;
