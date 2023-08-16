@@ -1,17 +1,19 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { authSelectors, getCurrentUser } from 'redux/auth';
+import { lazy } from 'react';
 
+import { authSelectors, getCurrentUser } from 'redux/auth';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
 
-import HomePage from 'pages/HomePage';
-import RegisterPage from 'pages/RegisterPage';
-import LoginPage from 'pages/LoginPage';
-import ContactsPage from 'pages/ContactsPage';
-import AddContactsPage from 'pages/AddContactsPage';
 import Layout from 'components/Layout';
+
+const HomePage = lazy(() => import('pages/HomePage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const AddContactsPage = lazy(() => import('pages/AddContactsPage'));
 
 export default function App() {
   const dispatch = useDispatch();
