@@ -1,13 +1,17 @@
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { purple } from '@mui/material/colors';
+import { deepPurple, purple } from '@mui/material/colors';
 
 export const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(purple[500]),
-  backgroundColor: purple[500],
-  fontWeight: '700',
-  boxShadow: '2px 2px 2px 2px #5c2e6c',
-  border: '1px solid #7b2697',
+  color: theme.palette.getContrastText(deepPurple[500]),
+  backgroundColor: deepPurple[300],
+  fontWeight: '500',
+  boxShadow: '2px 2px 2px 2px #512da8',
+  border: '1px solid #512da8',
+  marginRight: '15px',
+  fontFamily: 'Roboto',
+  textTransform: 'none',
+  fontSize: '16px',
   '&:hover': {
     backgroundColor: purple[700],
   },
