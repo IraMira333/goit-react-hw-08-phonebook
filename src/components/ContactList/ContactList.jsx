@@ -22,10 +22,10 @@ const ContactList = ({ contacts }) => {
   const sortContacts = contacts.sort(SortArray);
 
   return (
-    <List>
+    <List sx={{ maxWidth: '350px', marginLeft: 'auto', marginRight: 'auto' }}>
       {sortContacts.map(contact => {
         return (
-          <ListItem key={contact.id}>
+          <ListItem key={contact.id} sx={{ justifyContent: 'center' }}>
             <ListItemIcon>
               <ContactPhoneIcon />
             </ListItemIcon>
