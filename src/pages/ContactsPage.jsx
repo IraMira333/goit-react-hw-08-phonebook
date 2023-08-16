@@ -35,6 +35,7 @@ export default function ContactsPage() {
         marginLeft: '0',
         marginRight: '0',
         minHeight: minBoxHeightPx,
+        textAlign: 'center',
       }}
     >
       <h2>Contacts</h2>
