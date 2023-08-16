@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import purple from '@material-ui/core/colors/purple';
 
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth';
@@ -20,6 +21,7 @@ const defaultTheme = createTheme();
 
 export default function LoginPage() {
   const dispatch = useDispatch();
+  const primary = purple[900];
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,7 +45,7 @@ export default function LoginPage() {
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{ color: primary }}>
             Sign in
           </Typography>
           <Box
@@ -77,7 +79,12 @@ export default function LoginPage() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{
+                mt: 3,
+                mb: 2,
+                background:
+                  'linear-gradient(to right bottom, #5275e9, #d08dd3)',
+              }}
             >
               Sign In
             </Button>
@@ -86,6 +93,7 @@ export default function LoginPage() {
                 <Link
                   href="https://iramira333.github.io/goit-react-hw-08-phonebook/register"
                   variant="body2"
+                  sx={{ color: primary }}
                 >
                   {"Don't have an account? Sign Up"}
                 </Link>
