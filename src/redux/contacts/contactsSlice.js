@@ -3,7 +3,6 @@ import { addContact, getContacts, deleteContact } from './contactsOperations';
 
 const handlePending = state => {
   state.isLoading = true;
-  state.contactIsAdded = false;
 };
 
 const handleRejected = (state, action) => {
@@ -21,6 +20,12 @@ const initialState = {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    addedContact(state) {
+      state.contactIsAdded = false;
+      console.log(`Im work`);
+    },
+  },
 
   extraReducers: builder => {
     builder
@@ -32,12 +37,15 @@ const contactsSlice = createSlice({
       })
       .addCase(getContacts.pending, handlePending)
       .addCase(getContacts.rejected, handleRejected)
-      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.pending, state => {
+        state.isLoading = true;
+        state.contactIsAdded = false;
+      })
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.contactsInfo.push(action.payload);
         state.contactIsAdded = true;
+        state.contactsInfo.push(action.payload);
       })
       .addCase(addContact.rejected, handleRejected)
       .addCase(deleteContact.pending, handlePending)
@@ -54,3 +62,4 @@ const contactsSlice = createSlice({
 });
 
 export const contactsReducer = contactsSlice.reducer;
+export const { addedContact } = contactsSlice.actions;
