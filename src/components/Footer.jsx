@@ -8,7 +8,17 @@ import purple from '@material-ui/core/colors/purple';
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" align="center" {...props}>
+    <Typography
+      variant="body2"
+      align="center"
+      {...props}
+      sx={{
+        fontSize: '10px',
+        '@media (min-width:540px)': {
+          fontSize: '14px',
+        },
+      }}
+    >
       {'Copyright © '}
       <Link
         color="inherit"
@@ -45,12 +55,22 @@ export default function Footer() {
           px: 2,
           mt: 'auto',
           color: primary,
+
           background: 'linear-gradient(to right bottom, #5275e9, #d08dd3)',
         }}
       >
-        <Typography variant="body1" align="center">
+        {/* <Typography
+          variant="body1"
+          align="center"
+          sx={{
+            fontSize: '12px',
+            '@media (min-width:540px)': {
+              fontSize: '14px',
+            },
+          }}
+        >
           My sticky footer can be found here.
-        </Typography>
+        </Typography> */}
         <Copyright />
       </Box>
     </ThemeProvider>
