@@ -2,12 +2,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Container from '@mui/material/Container';
+import Typography from '@material-ui/core/Typography';
 
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 import Spiner from 'components/Spiner/Spiner';
+import Snack from 'components/Snack/Snack';
 import {
+  addedContact,
   getContacts,
+  selectContactIsAdded,
   selectContacts,
   selectError,
   selectFilteredContacts,
@@ -24,9 +28,16 @@ export default function ContactsPage() {
   const showNoContacts = !isLoading && !isError && contacts.length === 0;
   const dispatch = useDispatch();
 
+  const isContactAdded = useSelector(selectContactIsAdded);
+  //const [contactIsAdded, setContactIsAdded] = useState(false);
+
   useEffect(() => {
     dispatch(getContacts());
   }, [dispatch]);
+
+  function onClose() {
+    dispatch(addedContact());
+  }
 
   return (
     <Container
@@ -34,11 +45,14 @@ export default function ContactsPage() {
         bgcolor: '#cfe8fc',
         marginLeft: '0',
         marginRight: '0',
+        paddingTop: '10px',
         minHeight: minBoxHeightPx,
         textAlign: 'center',
       }}
     >
-      <h2>Contacts</h2>
+      <Typography variant="h3" color="primary">
+        Contacts
+      </Typography>
       {isLoading && <Spiner />}
       {isError && <p>{isError}</p>}{' '}
       {showContacts && (
@@ -48,6 +62,7 @@ export default function ContactsPage() {
         </>
       )}
       {showNoContacts && <p>You don't have any contact yet</p>}
+      <Snack isOpen={isContactAdded} handleClose={onClose} />
     </Container>
   );
 }
