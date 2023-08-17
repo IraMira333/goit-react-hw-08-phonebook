@@ -5,6 +5,7 @@ export const selectFilter = state => state.filter.filter;
 
 export const selectIsLoading = state => state.contacts.isLoading;
 export const selectError = state => state.contacts.error;
+export const selectContactIsAdded = state => state.contacts.contactIsAdded;
 
 export const selectFilteredContacts = createSelector(
   [state => state.contacts.contactsInfo, state => state.filter.filter],
