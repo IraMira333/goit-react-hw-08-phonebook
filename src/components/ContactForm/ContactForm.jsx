@@ -20,7 +20,6 @@ export default function ContactForm() {
     e.preventDefault();
     const name = e.currentTarget.name.value;
     const number = e.currentTarget.number.value;
-
     const existingContact = findingDoubleName.find(
       el => el.name.toLocaleLowerCase() === name.toLocaleLowerCase()
     );
