@@ -11,8 +11,13 @@ export const ColorButton = styled(Button)(({ theme }) => ({
   marginRight: '15px',
   fontFamily: 'Roboto',
   textTransform: 'none',
-  fontSize: '16px',
+  fontSize: '12px',
+  padding: '1px 10px',
   '&:hover': {
     backgroundColor: purple[700],
+  },
+  '@media (min-width:550px)': {
+    fontSize: '16px',
+    padding: '6px 16px',
   },
 }));
