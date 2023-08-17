@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { devices } from 'support/breakpoints';
 
 export const StyledNavLink = styled(NavLink)`
   display: inline-block;
@@ -10,6 +11,9 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 18px;
   color: #212121;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @media only screen and ${devices.xs} {
+    font-size: 14px;
+  }
 
   &.active {
     color: #4a148c;
