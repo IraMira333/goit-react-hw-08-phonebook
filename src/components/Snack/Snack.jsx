@@ -3,7 +3,12 @@ import Alert from '@mui/material/Alert';
 
 export default function Snack({ isOpen, handleClose }) {
   return (
-    <Snackbar open={isOpen} autoHideDuration={3000} onClose={handleClose}>
+    <Snackbar
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      open={isOpen}
+      autoHideDuration={3000}
+      onClose={handleClose}
+    >
       <Alert severity="success">
         You have successfully added a contact to your list!
       </Alert>
