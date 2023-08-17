@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
-import { StyledNavLink } from './TopBar.styled';
+import { StyledNav, StyledNavLink } from './TopBar.styled';
 
 export default function Navigation() {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
@@ -12,10 +12,10 @@ export default function Navigation() {
     </>
   );
   return (
-    <nav>
+    <StyledNav>
       <StyledNavLink to="/">HomePage</StyledNavLink>
 
       {isLoggedIn && privateInfo}
-    </nav>
+    </StyledNav>
   );
 }
