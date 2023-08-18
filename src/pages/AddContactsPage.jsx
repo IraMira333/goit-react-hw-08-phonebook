@@ -1,6 +1,6 @@
 import ContactForm from 'components/ContactForm/ContactForm';
 import Container from '@mui/material/Container';
-import { minBoxHeightPx } from 'support/support';
+import { minBoxHeightPx, pageWidth } from 'support/support';
 
 export default function AddContactsPage() {
   return (
@@ -12,6 +12,9 @@ export default function AddContactsPage() {
         paddingTop: '10px',
         minHeight: minBoxHeightPx,
         textAlign: 'center',
+        '@media (min-width: 1200px)': {
+          maxWidth: pageWidth,
+        },
       }}
     >
       <ContactForm />
