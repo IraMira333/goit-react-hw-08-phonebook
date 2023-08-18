@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import * as React from 'react';
-
 import { authSelectors, logOut } from 'redux/auth';
 import { ColorButton } from './UserMenu.styled';
 import {
