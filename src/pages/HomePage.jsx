@@ -18,7 +18,6 @@ export default function HomePage() {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        bgcolor: '#cfe8fc',
         marginLeft: '0',
         marginRight: '0',
         paddingTop: '10px',
