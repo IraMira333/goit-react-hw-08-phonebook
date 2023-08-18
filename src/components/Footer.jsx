@@ -13,9 +13,9 @@ function Copyright(props) {
       align="center"
       {...props}
       sx={{
-        fontSize: '10px',
+        fontSize: '8px',
         '@media (min-width:540px)': {
-          fontSize: '14px',
+          fontSize: '12px',
         },
       }}
     >
@@ -51,7 +51,7 @@ export default function Footer() {
       <Box
         component="footer"
         sx={{
-          py: 3,
+          py: 1,
           px: 2,
           mt: 'auto',
           color: primary,
@@ -59,18 +59,19 @@ export default function Footer() {
           background: 'linear-gradient(to right bottom, #5275e9, #d08dd3)',
         }}
       >
-        {/* <Typography
+        <Typography
           variant="body1"
           align="center"
           sx={{
             fontSize: '12px',
+            fontWeight: '700',
             '@media (min-width:540px)': {
-              fontSize: '14px',
+              fontSize: '18px',
             },
           }}
         >
-          My sticky footer can be found here.
-        </Typography> */}
+          Let you always have someone to call!
+        </Typography>
         <Copyright />
       </Box>
     </ThemeProvider>
