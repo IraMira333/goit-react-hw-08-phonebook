@@ -3,7 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -14,6 +13,7 @@ import purple from '@material-ui/core/colors/purple';
 
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth';
+import { Link } from 'react-router-dom';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -104,13 +104,7 @@ export default function RegisterPage() {
             </Button>
             <Grid container justifyContent="center">
               <Grid item>
-                <Link
-                  href="https://iramira333.github.io/goit-react-hw-08-phonebook/login"
-                  variant="body2"
-                  sx={{ color: primary }}
-                >
-                  Already have an account? Sign in
-                </Link>
+                <Link to="/login">Already have an account? Sign in</Link>
               </Grid>
             </Grid>
           </Box>
