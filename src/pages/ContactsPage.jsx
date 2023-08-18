@@ -17,7 +17,7 @@ import {
   selectFilteredContacts,
   selectIsLoading,
 } from 'redux/contacts';
-import { minBoxHeightPx } from 'support/support';
+import { minBoxHeightPx, pageWidth } from 'support/support';
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
@@ -48,6 +48,9 @@ export default function ContactsPage() {
         paddingTop: '10px',
         minHeight: minBoxHeightPx,
         textAlign: 'center',
+        '@media (min-width: 1200px)': {
+          maxWidth: pageWidth,
+        },
       }}
     >
       <Typography variant="h3" color="primary">
