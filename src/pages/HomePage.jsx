@@ -1,13 +1,11 @@
 import React from 'react';
 
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
 import { minBoxHeightPx, pageWidth } from 'support/support';
 import backgroundImage from 'support/PhoonBookCanva2-min.jpeg';
-//import { Typography } from '@material-ui/core';
-//import { StyledNavLink } from 'components/TopBar/TopBar.styled';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
   const isLoggedIn = useSelector(authSelectors.selectIsLoggedIn);
@@ -20,7 +18,7 @@ export default function HomePage() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundColor: '#d1c4e9',
-        paddingTop: '10px',
+        paddingTop: '100px',
         minHeight: minBoxHeightPx,
         textAlign: 'center',
         '@media (min-width: 1200px)': {
@@ -31,28 +29,15 @@ export default function HomePage() {
       {!isLoggedIn ? (
         <div>
           <h1>
-            Please{' '}
-            <Link
-              href="https://iramira333.github.io/goit-react-hw-08-phonebook/register"
-              underline="hover"
-            >
-              Register
-            </Link>{' '}
-            or{' '}
-            <Link
-              href="https://iramira333.github.io/goit-react-hw-08-phonebook/login"
-              underline="hover"
-            >
-              Login
-            </Link>
-            .
+            Please <Link to="/register">register</Link> or{' '}
+            <Link to="/login">login</Link>.
           </h1>
         </div>
       ) : (
         <div>
-          <h1>Hello {isUserName?.name}.</h1>
+          <h1>Hello, {isUserName}.</h1>
           <h2>
-            Would you like to see your <Link to="contacts"> contacts</Link>?
+            Would you like to see your <Link to="/contacts"> contacts</Link>?
           </h2>
         </div>
       )}
