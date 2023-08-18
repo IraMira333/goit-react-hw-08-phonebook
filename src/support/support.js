@@ -6,3 +6,4 @@ const footerHeight = footerEl.clientHeight;
 const pageHeight = document.documentElement.clientHeight;
 const minBoxHeight = pageHeight - headerHeight - footerHeight;
 export const minBoxHeightPx = `${minBoxHeight}px`;
+export const pageWidth = `${document.documentElement.clientWidth}px`;
